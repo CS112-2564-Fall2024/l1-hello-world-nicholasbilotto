@@ -1,16 +1,16 @@
 public class Car {
   //value
-  String make, model, color;
-  int year, mpg, topSpeed;
+  private String make, model, color;
+  private int year, mpg, topSpeed;
 
   //constructor, default
   public Car(){
-    this.make = null;
-    this.model = null;
-    this.color = null;
-    this.year = null;
-    this.mpg = null;
-    this.topSpeed = null;
+    this.make = "Unknown";
+    this.model = "Unknown";
+    this.color = "Unknown";
+    this.year = 0;
+    this.mpg = 0;
+    this.topSpeed = 0;
   }
 
   //constructor, full
@@ -25,63 +25,71 @@ public class Car {
 
   //getters
     public String GetMake() {
-    
+      return make;
   }
 
     public String GetModel() {
-    
+      return model;
   }
 
     public String GetColor() {
-    
+      return color;
   }
 
     public int GetYear() {
-    
+      return year;
   }
 
     public int GetMPG() {
-    
+      return mpg;
   }
 
-    public int GetMake() {
-    
+    public int GetTopSpeed() {
+      return topSpeed;
   }
 
   
   //setters
 
-    public String SetMake() {
-  
+    public void SetMake(String make) {
+      this.make = make;
   }
   
-    public String SetModel() {
-  
-  }
-
-    public String SetColor() {
-  
+    public void SetModel(String model) {
+      this.model = model;
   }
 
-    public int SetYear() {
-  
+    public void SetColor(String color) {
+      this.color = color;
   }
 
-    public int SetMPG() {
-  
+    public void SetYear(int year) {
+      this.year = year;
   }
 
-    public int SetTopSpeed() {
-  
+    public void SetMPG(int mpg) {
+      this.mpg = mpg;
+  }
+
+    public void SetTopSpeed(int topSpeed) {
+      this.topSpeed = topSpeed;
   }
 
   //toString
   public String toString() {
-    return 
+     return "Car: " + make + ", " + model + ", " + color + ", " + 
+        year + ", " + mpg + ", " + topSpeed;
   }
 
   //equals
-  public boolean equals(Car otherCar){
-    if (this.
+  //used chatGPT for this and am a little lost on exactly what it is doing . 
+  public boolean equals(Object obj){
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    
+    Car otherCar = (Car) obj;
+    return make.equals(otherCar.make) && model.equals(otherCar.model) && 
+           color.equals(otherCar.color) && year == otherCar.year && 
+           mpg == otherCar.mpg && topSpeed == otherCar.topSpeed;
   }
 }
